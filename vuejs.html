@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .user {
+            border: 1px solid #ccc;
+            background-color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <p>{{ title }}</p>
+        <hr>
+
+            <app-user>
+
+            </app-user>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        Vue.component('app-user', {
+            data: function () {
+                return {
+                    users: [
+                        { username: "Omama" },
+                        { username: "Saman" },
+                        { username: "Wardha" }
+                    ]
+                };
+            }, template:    `<div><div class="user" v-for="user in users">
+                                <p> username: {{ username }}</p>
+                            </div></div>`
+        });
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                title: "Hello World",
+
+            }
+        });
+
+    </script>
+</body>
+
+</html>
